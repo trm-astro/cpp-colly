@@ -1,0 +1,47 @@
+Making all in src
+make[1]: Entering directory `/home/phsaap/code/C++/colly/src'
+make[2]: Entering directory `/home/phsaap/code/C++/colly'
+make[2]: Leaving directory `/home/phsaap/code/C++/colly'
+if g++ -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE=\"colly\" -DVERSION=\"1.0.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_MATH_H=1  -I. -I. -I../include  -I/opt/include -I/home/phsaap/software/include  -Wall -g -O3 -MT write_molly_head.o -MD -MP -MF ".deps/write_molly_head.Tpo" -c -o write_molly_head.o write_molly_head.cc; \
+then mv -f ".deps/write_molly_head.Tpo" ".deps/write_molly_head.Po"; else rm -f ".deps/write_molly_head.Tpo"; exit 1; fi
+if g++ -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE=\"colly\" -DVERSION=\"1.0.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_MATH_H=1  -I. -I. -I../include  -I/opt/include -I/home/phsaap/software/include  -Wall -g -O3 -MT read_molly_head.o -MD -MP -MF ".deps/read_molly_head.Tpo" -c -o read_molly_head.o read_molly_head.cc; \
+then mv -f ".deps/read_molly_head.Tpo" ".deps/read_molly_head.Po"; else rm -f ".deps/read_molly_head.Tpo"; exit 1; fi
+if g++ -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE=\"colly\" -DVERSION=\"1.0.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_MATH_H=1  -I. -I. -I../include  -I/opt/include -I/home/phsaap/software/include  -Wall -g -O3 -MT find_groups.o -MD -MP -MF ".deps/find_groups.Tpo" -c -o find_groups.o find_groups.cc; \
+then mv -f ".deps/find_groups.Tpo" ".deps/find_groups.Po"; else rm -f ".deps/find_groups.Tpo"; exit 1; fi
+if g++ -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE=\"colly\" -DVERSION=\"1.0.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_MATH_H=1  -I. -I. -I../include  -I/opt/include -I/home/phsaap/software/include  -Wall -g -O3 -MT rejig_molly_head.o -MD -MP -MF ".deps/rejig_molly_head.Tpo" -c -o rejig_molly_head.o rejig_molly_head.cc; \
+then mv -f ".deps/rejig_molly_head.Tpo" ".deps/rejig_molly_head.Po"; else rm -f ".deps/rejig_molly_head.Tpo"; exit 1; fi
+if g++ -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE=\"colly\" -DVERSION=\"1.0.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_MATH_H=1  -I. -I. -I../include  -I/opt/include -I/home/phsaap/software/include  -Wall -g -O3 -MT skip_molly_data.o -MD -MP -MF ".deps/skip_molly_data.Tpo" -c -o skip_molly_data.o skip_molly_data.cc; \
+then mv -f ".deps/skip_molly_data.Tpo" ".deps/skip_molly_data.Po"; else rm -f ".deps/skip_molly_data.Tpo"; exit 1; fi
+if g++ -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE=\"colly\" -DVERSION=\"1.0.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_MATH_H=1  -I. -I. -I../include  -I/opt/include -I/home/phsaap/software/include  -Wall -g -O3 -MT skip_bytes.o -MD -MP -MF ".deps/skip_bytes.Tpo" -c -o skip_bytes.o skip_bytes.cc; \
+then mv -f ".deps/skip_bytes.Tpo" ".deps/skip_bytes.Po"; else rm -f ".deps/skip_bytes.Tpo"; exit 1; fi
+rm -f libcolly.a
+ar cru libcolly.a write_molly_head.o read_molly_head.o find_groups.o rejig_molly_head.o skip_molly_data.o skip_bytes.o 
+ranlib libcolly.a
+if g++ -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE=\"colly\" -DVERSION=\"1.0.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_MATH_H=1  -I. -I. -I../include  -I/opt/include -I/home/phsaap/software/include  -Wall -g -O3 -MT correct.o -MD -MP -MF ".deps/correct.Tpo" -c -o correct.o correct.cc; \
+then mv -f ".deps/correct.Tpo" ".deps/correct.Po"; else rm -f ".deps/correct.Tpo"; exit 1; fi
+g++  -Wall -g -O3  -L/opt/lib -L/home/phsaap/software/lib -o correct  correct.o read_molly_head.o skip_molly_data.o find_groups.o write_molly_head.o skip_bytes.o -lsubs -lcsla 
+if g++ -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE=\"colly\" -DVERSION=\"1.0.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_MATH_H=1  -I. -I. -I../include  -I/opt/include -I/home/phsaap/software/include  -Wall -g -O3 -MT grab.o -MD -MP -MF ".deps/grab.Tpo" -c -o grab.o grab.cc; \
+then mv -f ".deps/grab.Tpo" ".deps/grab.Po"; else rm -f ".deps/grab.Tpo"; exit 1; fi
+g++  -Wall -g -O3  -L/opt/lib -L/home/phsaap/software/lib -o grab  grab.o read_molly_head.o skip_bytes.o skip_molly_data.o write_molly_head.o -lsubs -lcsla 
+if g++ -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE=\"colly\" -DVERSION=\"1.0.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_MATH_H=1  -I. -I. -I../include  -I/opt/include -I/home/phsaap/software/include  -Wall -g -O3 -MT group.o -MD -MP -MF ".deps/group.Tpo" -c -o group.o group.cc; \
+then mv -f ".deps/group.Tpo" ".deps/group.Po"; else rm -f ".deps/group.Tpo"; exit 1; fi
+g++  -Wall -g -O3  -L/opt/lib -L/home/phsaap/software/lib -o group  group.o read_molly_head.o find_groups.o skip_molly_data.o skip_bytes.o -lsubs -lcsla 
+if g++ -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE=\"colly\" -DVERSION=\"1.0.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_MATH_H=1  -I. -I. -I../include  -I/opt/include -I/home/phsaap/software/include  -Wall -g -O3 -MT reorder.o -MD -MP -MF ".deps/reorder.Tpo" -c -o reorder.o reorder.cc; \
+then mv -f ".deps/reorder.Tpo" ".deps/reorder.Po"; else rm -f ".deps/reorder.Tpo"; exit 1; fi
+reorder.cc: In function `int main(int, char**)':
+reorder.cc:87: warning: 'dkey' might be used uninitialized in this function
+g++  -Wall -g -O3  -L/opt/lib -L/home/phsaap/software/lib -o reorder  reorder.o write_molly_head.o read_molly_head.o skip_bytes.o -lsubs -lcsla 
+if g++ -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE=\"colly\" -DVERSION=\"1.0.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_MATH_H=1  -I. -I. -I../include  -I/opt/include -I/home/phsaap/software/include  -Wall -g -O3 -MT mlist.o -MD -MP -MF ".deps/mlist.Tpo" -c -o mlist.o mlist.cc; \
+then mv -f ".deps/mlist.Tpo" ".deps/mlist.Po"; else rm -f ".deps/mlist.Tpo"; exit 1; fi
+g++  -Wall -g -O3  -L/opt/lib -L/home/phsaap/software/lib -o mlist  mlist.o skip_molly_data.o skip_bytes.o read_molly_head.o rejig_molly_head.o -lsubs -lcsla 
+make[1]: Leaving directory `/home/phsaap/code/C++/colly/src'
+Making all in doc
+make[1]: Entering directory `/home/phsaap/code/C++/colly/doc'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/phsaap/code/C++/colly/doc'
+Making all in include
+make[1]: Entering directory `/home/phsaap/code/C++/colly/include'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/phsaap/code/C++/colly/include'
+make[1]: Entering directory `/home/phsaap/code/C++/colly'
+make[1]: Leaving directory `/home/phsaap/code/C++/colly'

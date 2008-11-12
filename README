@@ -1,0 +1,5 @@
+
+'colly' provides a small set of utilities for manipulating
+molly spectra. It is based upon C++. These routines can,
+for example, gather together all spectra on a certain object
+and write them into a single file.
