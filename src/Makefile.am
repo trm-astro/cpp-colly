@@ -13,9 +13,9 @@ group_SOURCES   = group.cc
 mlist_SOURCES   = mlist.cc
 reorder_SOURCES = reorder.cc
 
-INCLUDES = -I../include -I../. -I../../subs/include
+INCLUDES = -I../include -I../.
 
-LDADD = libcolly.la ../../subs/src/libsubs.la
+LDADD = libcolly.la
 
 ## Library
 
