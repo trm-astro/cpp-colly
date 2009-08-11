@@ -1,6 +1,6 @@
 dnl Process this file with autoconf to produce a configure script.
 
-AC_INIT([colly], [1.0.5])
+AC_INIT([colly], [1.0.6])
 
 AC_CONFIG_SRCDIR([src/grab.cc])
 
@@ -23,15 +23,21 @@ dnl Make C++ the default
 AC_LANG_CPLUSPLUS
 AC_REQUIRE_CPP
 
+dnl check for other trm software
+
+AC_CHECK_HEADERS([trm_subs.h trm_position.h trm_constants.h trm_array1d.h],[],AC_MSG_ERROR([cannot find 'subs' headers]))
+
+AC_CHECK_LIB([subs], [main], [], AC_MSG_ERROR([cannot find 'subs' library]))
+
 dnl third-party software checks
-
-AC_CHECK_LIB([pcrecpp], [main], [], AC_MSG_ERROR(cannot find the pcre C++ library))
-
-AC_CHECK_LIB([csla], [main], [], AC_MSG_ERROR(cannot find the sla C library))
 
 AC_CHECK_HEADERS([stdlib.h float.h math.h sstream string fstream iostream], [], AC_MSG_ERROR(missing header; please fix))
 
 AC_CHECK_HEADERS([pcrecpp.h slalib.h], [], AC_MSG_ERROR(missing header; please fix))
+
+AC_CHECK_LIB([pcrecpp], [main], [], AC_MSG_ERROR(cannot find the pcre C++ library))
+
+AC_CHECK_LIB([csla], [main], [], AC_MSG_ERROR(cannot find the sla C library))
 
 dnl Installation program
 AC_PROG_INSTALL
