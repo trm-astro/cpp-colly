@@ -1,6 +1,6 @@
 dnl Process this file with autoconf to produce a configure script.
 
-AC_INIT([colly], [1.0.7])
+AC_INIT([colly], [1.0.8])
 
 AC_CONFIG_SRCDIR([src/grab.cc])
 
@@ -15,13 +15,13 @@ dnl Checks for programs.
 AC_PROG_CXX
 AC_PROG_CC
 
-dnl Initialise libtool
-AC_CONFIG_MACRO_DIR([m4])
-AC_PROG_LIBTOOL
-
 dnl Make C++ the default
 AC_LANG_CPLUSPLUS
 AC_REQUIRE_CPP
+
+dnl Initialise libtool
+AC_CONFIG_MACRO_DIR([m4])
+AC_PROG_LIBTOOL
 
 dnl check for other trm software
 
@@ -46,4 +46,6 @@ dnl
 AC_CONFIG_SUBDIRS([subs])
 
 dnl The Makefiles to create
-AC_OUTPUT([Makefile include/Makefile src/Makefile doc/Makefile]) 
+AC_CONFIG_FILES([Makefile include/Makefile src/Makefile doc/Makefile]) 
+
+AC_OUTPUT
