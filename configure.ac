@@ -1,6 +1,6 @@
 dnl Process this file with autoconf to produce a configure script.
 
-AC_INIT([colly], [1.0.8])
+AC_INIT([colly], [1.0.9])
 
 AC_CONFIG_SRCDIR([src/grab.cc])
 
@@ -38,6 +38,9 @@ AC_CHECK_HEADERS([pcrecpp.h slalib.h], [], AC_MSG_ERROR(missing header; please f
 AC_CHECK_LIB([pcrecpp], [main], [], AC_MSG_ERROR(cannot find the pcre C++ library))
 
 AC_CHECK_LIB([csla], [main], [], AC_MSG_ERROR(cannot find the sla C library))
+
+dnl PGPLOT has its own macro 'cos its a pain
+TRM_LIB_PGPLOT
 
 dnl Installation program
 AC_PROG_INSTALL

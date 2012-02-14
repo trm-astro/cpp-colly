@@ -33,10 +33,12 @@
  * printed.
  */
 
+namespace Colly {
+  std::string convert_molly_to_header(std::string name);
+}
+
 bool Colly::read_molly_head(std::ifstream& ist, Subs::Header& head, 
 			    std::vector<std::string>& original, bool warn){
-
-    std::string convert_molly_to_header(std::string name);
   
     int  fcode, npix, narc, nchar, ndoub, nintr, nfloat;
     char units[17]; 
@@ -250,20 +252,21 @@ bool Colly::read_molly_head(std::ifstream& ist, Subs::Header& head,
     return true;
 }
 
-std::string convert_molly_to_header(std::string name){
+namespace Colly {
+  std::string convert_molly_to_header(std::string name){
     std::string::size_type n1 = name.find_first_not_of(" \t");
     if(n1 == std::string::npos)
-	throw Colly::Colly_Error("Blank name in std::string convert_molly_to_header(std::string)");
+      throw Colly::Colly_Error("Blank name in std::string convert_molly_to_header(std::string)");
     std::string::size_type n2 = name.find_last_not_of(" \t");
     name = name.substr(n1,n2-n1+1);
     std::string::size_type p;
     while((p = name.find(" ")) != std::string::npos)
-	name.replace(p,1,"_");
+      name.replace(p,1,"_");
     while((p = name.find("\t")) != std::string::npos)
-	name.replace(p,1,"_");
+      name.replace(p,1,"_");
     return name;
+  }
 }
-  
 
   
 
