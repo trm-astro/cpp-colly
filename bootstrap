@@ -1,6 +1,6 @@
 #! /bin/sh
 #
-# Prepares subs distribution to be in the usual
+# Prepares distribution to be in the usual
 # state for running './configure', 'make' and
 # 'make install'
 
