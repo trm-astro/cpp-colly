@@ -45,11 +45,11 @@ reorder infile outfile key (clobber)
 #include <vector>
 #include <map>
 
-#include "trm_subs.h"
-#include "trm_input.h"
-#include "trm_header.h"
-#include "trm_position.h"
-#include "trm_colly.h"
+#include "trm/subs.h"
+#include "trm/input.h"
+#include "trm/header.h"
+#include "trm/position.h"
+#include "trm/colly.h"
 
 int main(int argc, char* argv[]){
 

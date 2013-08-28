@@ -35,10 +35,10 @@ choice.}
 #include <stdlib.h>
 #include <fstream>
 
-#include "trm_subs.h"
-#include "trm_input.h"
-#include "trm_header.h"
-#include "trm_colly.h"
+#include "trm/subs.h"
+#include "trm/input.h"
+#include "trm/header.h"
+#include "trm/colly.h"
 
 int main(int argc, char* argv[]){
 

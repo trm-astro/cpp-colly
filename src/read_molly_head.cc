@@ -1,9 +1,9 @@
 #include <fstream>
 #include <vector>
 #include <string>
-#include "trm_subs.h"
-#include "trm_header.h"
-#include "trm_colly.h"
+#include "trm/subs.h"
+#include "trm/header.h"
+#include "trm/colly.h"
 
 /**
  * read_molly_head reads in the headers and arc poly

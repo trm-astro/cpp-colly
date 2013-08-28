@@ -9,9 +9,9 @@
 #include <fstream>
 #include <string>
 #include <vector>
-#include "trm_subs.h"
-#include "trm_header.h"
-#include "trm_position.h"
+#include "trm/subs.h"
+#include "trm/header.h"
+#include "trm/position.h"
 
 namespace Colly {
 

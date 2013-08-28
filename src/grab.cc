@@ -51,13 +51,13 @@ to be considered. <= 0 to ignore}
 #include <fstream>
 #include <string>
 #include <vector>
-#include "trm_subs.h"
-#include "trm_input.h"
-#include "trm_constants.h"
-#include "trm_header.h"
-#include "trm_position.h"
-#include "trm_date.h"
-#include "trm_colly.h"
+#include "trm/subs.h"
+#include "trm/input.h"
+#include "trm/constants.h"
+#include "trm/header.h"
+#include "trm/position.h"
+#include "trm/date.h"
+#include "trm/colly.h"
 
 int main(int argc, char* argv[]){
 

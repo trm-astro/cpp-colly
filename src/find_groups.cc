@@ -1,7 +1,7 @@
 #include <stdlib.h>
-#include "trm_subs.h"
-#include "trm_position.h"
-#include "trm_colly.h"
+#include "trm/subs.h"
+#include "trm/position.h"
+#include "trm/colly.h"
 
 /**
  * find_groups recursively allocates groups of spectra

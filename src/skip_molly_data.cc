@@ -1,7 +1,7 @@
 #include <fstream>
-#include "trm_subs.h"
-#include "trm_header.h"
-#include "trm_colly.h"
+#include "trm/subs.h"
+#include "trm/header.h"
+#include "trm/colly.h"
 
 /**
  * skip_molly_data is a routine to skip over molly
