@@ -6,3 +6,4 @@ Installation order: subs --> colly
 
 See www.astro.warwick.ac.uk/people/marsh/software for further info.
 
+Run './bootstrap' if starting from scratch.
