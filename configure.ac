@@ -1,6 +1,6 @@
 dnl Process this file with autoconf to produce a configure script.
 
-AC_INIT([colly], [1.0.9])
+AC_INIT([colly], [1.1])
 
 AC_CONFIG_SRCDIR([src/grab.cc])
 
