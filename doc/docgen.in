@@ -5,7 +5,7 @@
 # document.pl on each of a set of files and then
 # generates indices for them.
 
-require "document.pl";
+require "./document.pl";
 
 $time = localtime;
 
