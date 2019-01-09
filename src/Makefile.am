@@ -13,9 +13,9 @@ group_SOURCES   = group.cc
 mlist_SOURCES   = mlist.cc
 reorder_SOURCES = reorder.cc
 
-INCLUDES = -I../include -I../.
+AM_CPPFLAGS = -I../include -I../. $(PCRECPP_CPPFLAGS)
 
-LDADD = libcolly.la
+LDADD = libcolly.la $(PCRECPP_LIBS)
 
 ## Library
 

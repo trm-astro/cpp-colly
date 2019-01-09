@@ -33,9 +33,9 @@ dnl third-party software checks
 
 AC_CHECK_HEADERS([stdlib.h float.h math.h sstream string fstream iostream], [], AC_MSG_ERROR(missing header; please fix))
 
-AC_CHECK_HEADERS([pcrecpp.h slalib.h], [], AC_MSG_ERROR(missing header; please fix))
+PKG_CHECK_MODULES([PCRECPP], [libpcrecpp], [], AC_MSG_ERROR(cannot locate the pcrecpp library and / or header files))
 
-AC_CHECK_LIB([pcrecpp], [main], [], AC_MSG_ERROR(cannot find the pcre C++ library))
+AC_CHECK_HEADERS([slalib.h], [], AC_MSG_ERROR(missing header; please fix))
 
 AC_CHECK_LIB([csla], [main], [], AC_MSG_ERROR(cannot find the sla C library))
 
