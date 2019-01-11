@@ -1,9 +1,0 @@
-
-'colly' provides a small set of utilities and an associated C++
-library for manipulating molly spectra. 
-
-Installation order: subs --> colly
-
-See www.astro.warwick.ac.uk/people/marsh/software for further info.
-
-Run './bootstrap' if starting from scratch.
