@@ -34,7 +34,7 @@ void Colly::skip_molly_data(std::ifstream& ist, Subs::Header& head){
     nbytes = 3*npix*sizeof(float);
     break;
   default:
-    std::string message = "Error in Colly::skip_molly_data. Unrecognised molly format code = " + fcode;
+    std::string message = "Error in Colly::skip_molly_data. Unrecognised molly format code = " + std::to_string(fcode);
     throw Colly_Error(message);
   }
 
