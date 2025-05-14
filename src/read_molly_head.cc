@@ -187,7 +187,7 @@ bool Colly::read_molly_head(std::ifstream& ist, Subs::Header& head,
 #endif
 
     if(narc != 0){
-	double arc[abs(narc)];
+	std::vector<double> arc(abs(narc));
 	if(!(ist.read((char *)&arc,abs(narc)*sizeof(double))))
 	    throw Colly::Colly_Error("Colly::read_molly_head: Error reading arc coefficients");
 	double w1 = 0., w2 = 0.;
@@ -203,7 +203,7 @@ bool Colly::read_molly_head(std::ifstream& ist, Subs::Header& head,
 
 	double disp = (w2-w1)/npix;
 	head.set("Xtra.ARC", 
-		 new Subs::Hdvector(std::vector<double>(arc,arc+abs(narc)), 
+		 new Subs::Hdvector(std::vector<double>(arc.data(),arc.data()+abs(narc)), 
 				    "Arc coefficients"));
 	head.set("Xtra.WLO", 
 		 new Subs::Hdouble(w1, "Lower wavelength (A, at pixel 0.5)"));

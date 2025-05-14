@@ -53,7 +53,7 @@ void Colly::write_molly_head(std::ofstream& ost, Subs::Header head, const std::v
     if(!(ost.write((char *)&narc,sizeof(int))))
 	throw Colly_Error("Colly::write_molly_head: Error writing narc");
 
-    double arc[std::max(1,abs(narc))];
+	std::vector<double> arc(std::max(1,abs(narc)));
     if(narc != 0){
 	Subs::Hitem* hitp = head["Xtra.ARC"];
 	for(int k=0; k<abs(narc); k++)
