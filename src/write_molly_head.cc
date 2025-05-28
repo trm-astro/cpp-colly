@@ -18,10 +18,16 @@
  * this can be used to write out in the same order if desired
  * \param old if true then header items will be written in original order
  */
+int _n = 0;
+void debuginc() { _n++; std::cout << "Colly::write_molly_head: debuginc: " << _n << std::endl; }
+	
 
-
-void Colly::write_molly_head(std::ofstream& ost, Subs::Header head, const std::vector<std::string>& original, bool old){
-  
+void Colly::write_molly_head(std::ofstream& ost, const Subs::Header& head, const std::vector<std::string>& original, bool old){
+	//#define DEBUG
+	#ifdef DEBUG
+	std::cout << "Colly::write_molly_head: writing molly header" << std::endl;
+	debuginc();
+	#endif
     // Start by dumping a number of bytes at start of record as
     // Fortran expects
 
@@ -33,6 +39,8 @@ void Colly::write_molly_head(std::ofstream& ost, Subs::Header head, const std::v
     head["Xtra.FCODE"]->get_value(fcode);
     if(!(ost.write((char *)&fcode,sizeof(int)))) 
 	throw Colly_Error("Colly::write_molly_head: Error writing fcode");
+
+
 
     std::string sunits;
     head["Xtra.UNITS"]->get_value(sunits);
@@ -330,7 +338,15 @@ void Colly::write_molly_head(std::ofstream& ost, Subs::Header head, const std::v
 #endif
 
     }
+	
 
     if(!(ost.write((char *)&nbytes, sizeof(int)))) 
 	throw Colly_Error("Colly::write_molly_head: failed to write 4 bytes at end of record 4");
+
+#ifdef DEBUG
+	std::cerr << "Colly::write_molly_head: finished writing molly header" << std::endl;
+	debuginc();
+#endif
+
 }
+

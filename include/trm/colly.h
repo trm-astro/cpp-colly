@@ -24,7 +24,7 @@ namespace Colly {
     bool read_molly_head(std::ifstream& ist, Subs::Header& head, std::vector<std::string>& original,
 			 bool warn=false);
 
-    void write_molly_head(std::ofstream& ost, Subs::Header head, 
+    void write_molly_head(std::ofstream& ost, const Subs::Header& head, 
 			  const std::vector<std::string>& original, bool old=true);
 
     void rejig_molly_head(Subs::Header& head, bool warn=false);
