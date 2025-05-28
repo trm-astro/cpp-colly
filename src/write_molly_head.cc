@@ -22,7 +22,12 @@ int _n = 0;
 void debuginc() { _n++; std::cout << "Colly::write_molly_head: debuginc: " << _n << std::endl; }
 	
 
-void Colly::write_molly_head(std::ofstream& ost, const Subs::Header& head, const std::vector<std::string>& original, bool old){
+void Colly::write_molly_head(std::ofstream& ost, Subs::Header& head, const std::vector<std::string>& original, bool old){
+	// note:: const in the function signature would be preferable but it breaks a lot of things
+	// note:: this function used to take a Subs::Header but now takes a Subs::Header& to avoid double free errors
+	Subs::Header local_head = head; // Make a local copy to avoid modifying the original header
+	
+
 	//#define DEBUG
 	#ifdef DEBUG
 	std::cout << "Colly::write_molly_head: writing molly header" << std::endl;
@@ -36,14 +41,14 @@ void Colly::write_molly_head(std::ofstream& ost, const Subs::Header& head, const
 	throw Colly_Error("Colly::write_molly_head: failed to write 4 bytes at start of record 1");
 
     int fcode;
-    head["Xtra.FCODE"]->get_value(fcode);
+    local_head["Xtra.FCODE"]->get_value(fcode);
     if(!(ost.write((char *)&fcode,sizeof(int)))) 
 	throw Colly_Error("Colly::write_molly_head: Error writing fcode");
 
 
 
     std::string sunits;
-    head["Xtra.UNITS"]->get_value(sunits);
+    local_head["Xtra.UNITS"]->get_value(sunits);
     char hname[16];
     sunits.copy(hname,16);  
     for(std::string::size_type j=sunits.length(); j<16; j++)
@@ -52,23 +57,23 @@ void Colly::write_molly_head(std::ofstream& ost, const Subs::Header& head, const
 	throw Colly_Error("Colly::write_molly_head: Error writing units");
 
     int  npix;
-    head["Xtra.NPIX"]->get_value(npix);  
+    local_head["Xtra.NPIX"]->get_value(npix);  
     if(!(ost.write((char *)&npix,sizeof(int))))
 	throw Colly_Error("Colly::write_molly_head: Error writing npix");
 
     int  narc;
-    head["Xtra.NARC"]->get_value(narc);  
+    local_head["Xtra.NARC"]->get_value(narc);  
     if(!(ost.write((char *)&narc,sizeof(int))))
 	throw Colly_Error("Colly::write_molly_head: Error writing narc");
 
 	std::vector<double> arc(std::max(1,abs(narc)));
     if(narc != 0){
-	Subs::Hitem* hitp = head["Xtra.ARC"];
+	Subs::Hitem* hitp = local_head["Xtra.ARC"];
 	for(int k=0; k<abs(narc); k++)
 	    arc[k] = hitp->get_dvector()[k];
     }
 
-    head.erase("Xtra");
+    local_head.erase("Xtra");
 
 #ifdef DEBUG
     std::cerr << "FCODE = " << fcode << ", UNITS = " << sunits
@@ -83,7 +88,7 @@ void Colly::write_molly_head(std::ofstream& ost, const Subs::Header& head, const
 
     if(old){
 	for(size_t l=0; l<original.size(); l++){
-	    hnode = head.find(original[l]);
+	    hnode = local_head.find(original[l]);
 	    if(hnode->value->type() == "string"){ 
 		nchar++;
 	    }else if(hnode->value->type() == "double"){
@@ -95,7 +100,7 @@ void Colly::write_molly_head(std::ofstream& ost, const Subs::Header& head, const
 	    }
 	}
     }else{
-	for(hit=head.begin(); hit != head.end(); hit++){
+	for(hit=local_head.begin(); hit != local_head.end(); hit++){
 	    if(hit->value->type() == "string"){ 
 		nchar++;
 	    }else if(hit->value->type() == "double"){
@@ -136,7 +141,7 @@ void Colly::write_molly_head(std::ofstream& ost, const Subs::Header& head, const
 
     if(old){
 	for(size_t l=0; l<original.size(); l++){
-	    hnode = head.find(original[l]);
+	    hnode = local_head.find(original[l]);
 	    if(hnode->value->type() == "string"){
 		hnode->name.copy(hname,16);
 		for(std::string::size_type j=hnode->name.length(); j<16; j++)
@@ -147,7 +152,7 @@ void Colly::write_molly_head(std::ofstream& ost, const Subs::Header& head, const
 	}
     
 	for(size_t l=0; l<original.size(); l++){
-	    hnode = head.find(original[l]);
+	    hnode = local_head.find(original[l]);
 	    if(hnode->value->type() == "double"){
 		hnode->name.copy(hname,16);
 		for(std::string::size_type j=hnode->name.length(); j<16; j++)
@@ -158,7 +163,7 @@ void Colly::write_molly_head(std::ofstream& ost, const Subs::Header& head, const
 	}
     
 	for(size_t l=0; l<original.size(); l++){
-	    hnode = head.find(original[l]);
+	    hnode = local_head.find(original[l]);
 	    if(hnode->value->type() == "int"){
 		hnode->name.copy(hname,16);
 		for(std::string::size_type j=hnode->name.length(); j<16; j++)
@@ -169,7 +174,7 @@ void Colly::write_molly_head(std::ofstream& ost, const Subs::Header& head, const
 	}
     
 	for(size_t l=0; l<original.size(); l++){
-	    hnode = head.find(original[l]);
+	    hnode = local_head.find(original[l]);
 	    if(hnode->value->type() == "float"){
 		hnode->name.copy(hname,16);
 		for(std::string::size_type j=hnode->name.length(); j<16; j++)
@@ -181,7 +186,7 @@ void Colly::write_molly_head(std::ofstream& ost, const Subs::Header& head, const
 
     }else{
 
-	for(hit=head.begin(); hit != head.end(); hit++){
+	for(hit=local_head.begin(); hit != local_head.end(); hit++){
 	    if(hit->value->type() == "string"){
 		hit->name.copy(hname,16);
 		for(std::string::size_type j=hit->name.length(); j<16; j++)
@@ -191,7 +196,7 @@ void Colly::write_molly_head(std::ofstream& ost, const Subs::Header& head, const
 	    }
 	}
     
-	for(hit=head.begin(); hit != head.end(); hit++){
+	for(hit=local_head.begin(); hit != local_head.end(); hit++){
 	    if(hit->value->type() == "double"){
 		hit->name.copy(hname,16);
 		for(std::string::size_type j=hit->name.length(); j<16; j++)
@@ -201,7 +206,7 @@ void Colly::write_molly_head(std::ofstream& ost, const Subs::Header& head, const
 	    }
 	}
     
-	for(hit=head.begin(); hit != head.end(); hit++){
+	for(hit=local_head.begin(); hit != local_head.end(); hit++){
 	    if(hit->value->type() == "int"){
 		hit->name.copy(hname,16);
 		for(std::string::size_type j=hit->name.length(); j<16; j++)
@@ -211,7 +216,7 @@ void Colly::write_molly_head(std::ofstream& ost, const Subs::Header& head, const
 	    }
 	}
     
-	for(hit=head.begin(); hit != head.end(); hit++){
+	for(hit=local_head.begin(); hit != local_head.end(); hit++){
 	    if(hit->value->type() == "float"){
 		hit->name.copy(hname,16);
 		for(std::string::size_type j=hit->name.length(); j<16; j++)
@@ -243,7 +248,7 @@ void Colly::write_molly_head(std::ofstream& ost, const Subs::Header& head, const
     if(old){
 
 	for(size_t l=0; l<original.size(); l++){
-	    hnode = head.find(original[l]);
+	    hnode = local_head.find(original[l]);
 	    if(hnode->value->type() == "string"){
 		for(std::string::size_type j=hnode->value->get_string().length(); j<32; j++)
 		    citem[j] = ' ';
@@ -254,7 +259,7 @@ void Colly::write_molly_head(std::ofstream& ost, const Subs::Header& head, const
 	}
     
 	for(size_t l=0; l<original.size(); l++){
-	    hnode = head.find(original[l]);
+	    hnode = local_head.find(original[l]);
 	    if(hnode->value->type() == "double"){
 		d = hnode->value->get_double();
 		if(!(ost.write((char*)&d, sizeof(double))))
@@ -263,7 +268,7 @@ void Colly::write_molly_head(std::ofstream& ost, const Subs::Header& head, const
 	}
     
 	for(size_t l=0; l<original.size(); l++){
-	    hnode = head.find(original[l]);
+	    hnode = local_head.find(original[l]);
 	    if(hnode->value->type() == "int"){
 		i = hnode->value->get_int();
 		if(!(ost.write((char*)&i, sizeof(int))))
@@ -272,7 +277,7 @@ void Colly::write_molly_head(std::ofstream& ost, const Subs::Header& head, const
 	}
     
 	for(size_t l=0; l<original.size(); l++){
-	    hnode = head.find(original[l]);
+	    hnode = local_head.find(original[l]);
 	    if(hnode->value->type() == "float"){
 		f = hnode->value->get_float();
 		if(!(ost.write((char*)&f, sizeof(float))))
@@ -282,7 +287,7 @@ void Colly::write_molly_head(std::ofstream& ost, const Subs::Header& head, const
 
     }else{
 
-	for(hit=head.begin(); hit != head.end(); hit++){
+	for(hit=local_head.begin(); hit != local_head.end(); hit++){
 	    if(hit->value->type() == "string"){
 		for(std::string::size_type j=hit->value->get_string().length(); j<32; j++)
 		    citem[j] = ' ';
@@ -292,7 +297,7 @@ void Colly::write_molly_head(std::ofstream& ost, const Subs::Header& head, const
 	    }
 	}
     
-	for(hit=head.begin(); hit != head.end(); hit++){
+	for(hit=local_head.begin(); hit != local_head.end(); hit++){
 	    if(hit->value->type() == "double"){
 		d = hit->value->get_double();
 		if(!(ost.write((char*)&d, sizeof(double))))
@@ -300,7 +305,7 @@ void Colly::write_molly_head(std::ofstream& ost, const Subs::Header& head, const
 	    }
 	}
     
-	for(hit=head.begin(); hit != head.end(); hit++){
+	for(hit=local_head.begin(); hit != local_head.end(); hit++){
 	    if(hit->value->type() == "int"){
 		i = hit->value->get_int();
 		if(!(ost.write((char*)&i, sizeof(int))))
@@ -308,7 +313,7 @@ void Colly::write_molly_head(std::ofstream& ost, const Subs::Header& head, const
 	    }
 	}
     
-	for(hit=head.begin(); hit != head.end(); hit++){
+	for(hit=local_head.begin(); hit != local_head.end(); hit++){
 	    if(hit->value->type() == "float"){
 		f = hit->value->get_float();
 		if(!(ost.write((char*)&f, sizeof(float))))
